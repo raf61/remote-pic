@@ -21,7 +21,7 @@ import { Writable } from "stream";
         ...opts,
         fileWriteStreamHandler: () => fileConsumer(chunks)
       });
-  
+      return accept({ a:true })
       form.parse(req, (err, fields, files) => {
         if (err) {
           return reject(err);
