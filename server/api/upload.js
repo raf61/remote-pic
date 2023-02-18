@@ -26,11 +26,13 @@ export default defineEventHandler(async event => {
     }
     catch(Err){
       return {
-        ok:false,
-        Err
+        ok:true
       }
     }
-
+    return {
+      ok:true,
+      second:true
+    }
 
   
     const contents = Buffer.concat(chunks);
