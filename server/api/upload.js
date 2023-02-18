@@ -22,11 +22,10 @@ export default defineEventHandler(async event => {
       const { files:{upload:uploaded} } = await formidablePromise(req, chunks, {
         ...formidableConfig,
       });  
-      return {ok:true}
     }
     catch(Err){
       return {
-        ok:true
+        ok:false
       }
     }
     return {
