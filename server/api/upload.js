@@ -24,9 +24,7 @@ export default defineEventHandler(async event => {
       });  
     }
     catch(Err){
-      return {
-        ok:false
-      }
+      return Err
     }
     return {
       ok:true,
