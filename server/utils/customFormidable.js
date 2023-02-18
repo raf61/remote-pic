@@ -21,13 +21,18 @@ import { Writable } from "stream";
         ...opts,
         fileWriteStreamHandler: () => fileConsumer(chunks)
       });
-      form.parse(req, (err, fields, files) => {
-        if (err) {
-          req.send(err)
-          return accept(err); // reject
-        }
-        return accept({ fields, files });
-      });
+      try{
+
+        form.parse(req, (err, fields, files) => {
+          if (err) {
+            return reject(err);
+          }
+          return accept({ fields, files });
+        });
+      }
+      catch(Err){
+        return {ok:false, msg:'deu erro'}
+      }
     });
   }
   
