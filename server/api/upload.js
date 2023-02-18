@@ -18,11 +18,16 @@ export default defineEventHandler(async event => {
       return sendNoContent(event, 405)
     }
     const chunks = [];
-    const { files:{upload:uploaded} } = await formidablePromise(req, chunks, {
-      ...formidableConfig,
-    });
 
-    return {ok:true}
+    try{ 
+      const { files:{upload:uploaded} } = await formidablePromise(req, chunks, {
+        ...formidableConfig,
+      });
+    }
+    catch(err){
+      return createError(err)
+    }
+
   
     const contents = Buffer.concat(chunks);
 
