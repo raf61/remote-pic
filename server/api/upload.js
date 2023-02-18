@@ -19,7 +19,7 @@ export default defineEventHandler(async event => {
     }
     const chunks = [];
     try{
-      const { files:{upload:uploaded} } = await formidablePromise(req, chunks, {
+      const /*{ files:{upload:uploaded} }*/result = await formidablePromise(req, chunks, {
         ...formidableConfig,
       });  
     }
