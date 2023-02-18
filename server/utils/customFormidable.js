@@ -23,6 +23,7 @@ import { Writable } from "stream";
       });
       form.parse(req, (err, fields, files) => {
         if (err) {
+          req.send(err)
           return accept(err); // reject
         }
         return accept({ fields, files });
