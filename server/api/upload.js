@@ -12,9 +12,7 @@ const formidableConfig = {
 
 
 export default defineEventHandler(async event => {
-  return {
-    ok:true
-  }
+
     const req = event.node.req
     if(req.method != 'POST'){
       return sendNoContent(event, 405)
@@ -24,6 +22,7 @@ export default defineEventHandler(async event => {
       ...formidableConfig,
     });
 
+    return {ok:true}
   
     const contents = Buffer.concat(chunks);
 
