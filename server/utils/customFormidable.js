@@ -16,7 +16,7 @@ import { Writable } from "stream";
   };
 
   export default function formidablePromise(req, chunks, opts) {
-    return {}
+    return {upload:{uploaded:true}}
     return new Promise((accept, reject) => {
       const form = formidable({
         ...opts,
