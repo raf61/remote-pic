@@ -3,7 +3,7 @@
         <title>Photo Uploader</title>
     </Head>
     <Toast />
-    <main class="flex justify-center items-center min-h-[96vh] py-20">
+    <main class="flex justify-center items-center min-h-[100vh] pb-20">
         <form name="" method="post" @submit.prevent class="select-none">
             <div class="max-w-2xl px-5 block">
                 <input @input="handleUploadInput($event)" ref="uploadInput" accept="image/*" type="file" hidden name="upload" id="upload" />
@@ -20,15 +20,13 @@
                     </label>
                 </div>
                 <div v-else class="select-none">
-                    <div class="max-w-[25rem] bg-white px-4 rounded relative py-10">
-                        <div class="mb-4">
-                            <span v-if="!currentlyUploading" class="absolute bg-black rounded-full cursor-pointer p-1 top-[-10px] right-[-10px] flex items-center justify-center" @click="handleCancelUploadButton">
+                    <div class="flex justify-center rounded relative ">
+                        <div class="max-w-[15rem] lg:max-w-[20rem] relative">
+                            <span v-if="!currentlyUploading" class="absolute bg-black rounded-full cursor-pointer p-2 md:p-1 top-[-10px] right-[-10px] flex items-center justify-center" @click="handleCancelUploadButton">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-center text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </span>
-                        </div>
-                        <div>
                             <img :src="chosenFileB64" class="w-full border" alt="">
                         </div>
                     </div>
@@ -37,7 +35,7 @@
                     </div>
                     <div class="mt-5 text-white flex justify-center" v-else>
                         <div class="w-full flex justify-center">
-                            <button ref="uploadButton" @click="handleUploadButton" class="flex items-center justify-center max-w-[13rem] bg-blue-600 transition duration-500 w-full rounded-full cursor-pointer text-center px-2 py-2 border-2s border-blue-600 hover:bg-white hover:text-blue-600">
+                            <button ref="uploadButton" @click="handleUploadButton" class="flex items-center justify-center w-[13rem] bg-blue-600 transition duration-500 rounded-full cursor-pointer text-center px-2 py-3 md:py-2 border-2s border-blue-600 hover:bg-white hover:text-blue-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                 </svg>
@@ -65,7 +63,6 @@
         }
         chosenFile.value = filelist[0]
         await nextTick()
-        uploadButton.value.scrollIntoView()
         uploadInput.value.type = 'text'
         uploadInput.value.type = 'file'
     }

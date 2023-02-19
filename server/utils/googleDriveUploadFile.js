@@ -25,7 +25,6 @@ export default async function googleDriveUploadFile(filename, contents, mimeType
             mimeType: mimeType,
             body: contents
         }
-
         const response = await driveService.files.create({
             resource: fileMetaData,
             media,

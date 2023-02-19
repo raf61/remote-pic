@@ -12,22 +12,21 @@ const formidableConfig = {
 
 
 export default defineEventHandler(async event => {
-
     const req = event.node.req
+
     if(req.method != 'POST'){
       return sendNoContent(event, 405)
     }
+
     const chunks = [];
     
-    const { files:{upload:uploaded} } = await formidablePromise(req, chunks, {
+    const { files:{ upload:uploaded } } = await formidablePromise(req, chunks, {
       ...formidableConfig,
     });  
     
-
-  
     const contents = Buffer.concat(chunks);
-
     const uploadedFileId = await uploadFile(v4()+extname(uploaded.originalFilename), Readable.from(contents), uploaded.mimetype)
+
     if (!uploadedFileId){
       return {
         ok:false,
