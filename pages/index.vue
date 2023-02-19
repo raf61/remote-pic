@@ -1,7 +1,4 @@
 <template>
-    <Head>
-        <title>Photo Uploader</title>
-    </Head>
     <Toast />
     <main class="flex justify-center items-center min-h-[100vh] pb-20">
         <form name="" method="post" @submit.prevent class="select-none">
@@ -51,6 +48,7 @@
 
 <script setup>
     useHead({
+        title:"Photo Uploader",
         bodyAttrs:{
             class:'bg-custom-gray'
         }
