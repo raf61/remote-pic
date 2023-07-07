@@ -1,42 +1,21 @@
-# Nuxt 3 Minimal Starter
+# Remote picture uploader
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+#### Imagine meeting your biggest idol and wanting to take a picture of you two, but your phone is out of battery. What can you do ? -> Ask him/her to take the selfie and send it to your remote picture uploader. The picture will go directly into your google drive!
 
-## Setup
+## Usage
+In order to configure your picture uploader for sending images to google drive, you must have service account credentials in google console ( client email and private key ) and your google drive folder ID. More details about it here: https://www.labnol.org/google-api-service-account-220404
 
-Make sure to install the dependencies:
 
-```bash
-# yarn
-yarn install
+After that, you can populate your .env file following .env.example, and than, deploy the project.
 
-# npm
-npm install
+Run ```pnpm i```
 
-# pnpm
-pnpm install
-```
+If you just want to test, run ```pnpm run dev``` .
 
-## Development Server
 
-Start the development server on http://localhost:3000
+But if you want to deploy, run  ```pnpm run build``` to build the application and than configure a server. 
 
-```bash
-npm run dev
-```
+Or, alternatively, you could use a service like Vercel to deploy your app for free.
 
-## Production
 
-Build the application for production:
 
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
